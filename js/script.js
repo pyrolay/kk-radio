@@ -35,7 +35,7 @@ let musicList
 const trackList = (data) => {
     const trackList = []
     for (const song of Object.keys(data)) {
-        const { id, image_uri, music_uri, name} = data[song]
+        const { id, image_uri, music_uri, name } = data[song]
         trackList.push({
             track: id,
             name: name["name-EUen"],
@@ -64,8 +64,8 @@ const setMusic = (i) => {
 
     $currentTime.innerHTML = '00:00'
     $music.addEventListener('loadeddata', () => {
-        $slide.max = $music.duration;
-        $songDurationTime.innerHTML = formatTime($music.duration);
+        $slide.max = $music.duration
+        $songDurationTime.innerHTML = formatTime($music.duration)
   })
 }
 
