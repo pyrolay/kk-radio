@@ -127,8 +127,7 @@ const shuffleList = () => {
 
 $btnShuffle.addEventListener("click", () => {
     shuffleList()
-    const randomTrack = Math.floor(Math.random() * musicList.length - 1)
-    setMusic(randomTrack)
+    setMusic(0)
     playMusic()
 })
 
