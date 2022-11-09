@@ -117,5 +117,5 @@ window.addEventListener("load", () => {
     getMusicInfo()
     setTimeout(() => {
         setMusic(0)
-    }, 500)
+    }, 2000)
 })
