@@ -63,10 +63,10 @@ const setMusic = (i) => {
     currentMusic = i
 
     $currentTime.innerHTML = '00:00'
-    setTimeout(() => {
-        $slide.max = $music.duration
-        $songDurationTime.innerHTML = formatTime($music.duration)
-    }, 200);
+    $music.addEventListener('loadeddata', () => {
+        $slide.max = $music.duration;
+        $songDurationTime.innerHTML = formatTime($music.duration);
+  })
 }
 
 const formatTime = (time) => {
