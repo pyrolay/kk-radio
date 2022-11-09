@@ -12,7 +12,7 @@ const $slide = $("#slide")
 const $img = $(".main-img")
 const $songName = $(".song-name")
 
-const BASE_URL = "http://acnhapi.com/v1/songs/"
+const BASE_URL = "https://acnhapi.com/v1/songs/"
 
 const getMusicInfo = () => {
     fetch(BASE_URL)
