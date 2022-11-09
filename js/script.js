@@ -11,6 +11,7 @@ const $songDurationTime = $(".song-duration-time")
 const $slide = $("#slide")
 const $img = $(".main-img")
 const $songName = $(".song-name")
+const $btnShuffle = $(".btn-shuffle")
 
 const BASE_URL = "https://acnhapi.com/v1/songs/"
 
@@ -113,9 +114,27 @@ $btnBackward.addEventListener("click", () => {
     playMusic()
 })
 
+const shuffleList = () => {
+    for (let i = musicList.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        let temp = musicList[i];
+        musicList[i] = musicList[j];
+        musicList[j] = temp;
+    }
+    const randomTrack = Math.floor(Math.random() * musicList.length - 1)
+    return randomTrack
+}
+
+$btnShuffle.addEventListener("click", () => {
+    shuffleList()
+    const randomTrack = Math.floor(Math.random() * musicList.length - 1)
+    setMusic(randomTrack)
+    playMusic()
+})
+
 window.addEventListener("load", () => {
     getMusicInfo()
     setTimeout(() => {
         setMusic(0)
-    }, 2000)
+    }, 500)
 })
