@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>K.K. Radio</title>
+</head>
+<body>
+
+    <audio src="" id="audio"></audio>
+<!--     <i class="fa-solid fa-volume-off"></i>
+    <i class="fa-solid fa-volume-low"></i>
+    <i class="fa-solid fa-volume-high"></i> -->
+
+    <div class="main-container">
+        <div class="main-section">
+            <div class="song-details">
+                <button class="btn-lists"><i class="fa-solid fa-bars"></i></button>
+                <div class="user-time">
+                    <span>hora</span>
+                </div>
+                <button class="btn-details">details</button>
+            </div>
+            <div class="img-title">
+                <img src="assets/1.png" alt="" class="main-img">
+            </div>
+            <div class="title">
+                <button><i class="fa-solid fa-volume-xmark"></i></button>
+                <div>
+                    <h1 class="song-name">Agent K.K.</h1>
+                    <h2>K.K. Slider</h2>
+                </div>
+                <button>
+                    <i class="show fa-regular fa-star"></i>
+                    <i class="hidden fa-solid fa-star"></i>
+                </button>
+            </div>
+            <div class="song-slider">
+                <input min="0" max="100" value="0" class="slider" id="slide" type="range">
+                <div class="song-time">
+                    <span class="current-time">00:00</span>
+                    <span class="song-duration-time">00:00</span>
+                </div>
+            </div>
+            <div class="change-song">
+                <button><i class="fa-solid fa-shuffle"></i></button>
+                <div>
+                    <button><i class="btn-backward fa-solid fa-backward-step"></i></button>
+                    <button class="btnPausePlay">
+                        <i class="btn-pause hidden fa-regular fa-circle-pause"></i>
+                        <i class="btn-play fa-regular fa-circle-play"></i>
+                    </button>
+                    <button><i class="btn-forward fa-solid fa-forward-step"></i></button>
+                </div>
+                <button><i class="fa-solid fa-list"></i></button>
+            </div>
+        </div>
+        <div class="queue-list">
+            <ul></ul>
+        </div>
+        <div class="lists">
+            <button class="songs-list">
+                <ul></ul>
+            </button>
+            <button class="fav-list">
+                <ul></ul>
+            </button>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
