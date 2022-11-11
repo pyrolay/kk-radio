@@ -12,6 +12,10 @@ const $slide = $("#slide")
 const $img = $(".main-img")
 const $songName = $(".song-name")
 const $btnShuffle = $(".btn-shuffle")
+const $btnVolume = $(".volume-button")
+const $volumeContainer = $(".volume-container")
+const $volumeSlider = $(".volume-input")
+const $volumeIcon = $(".volume-icon")
 
 const BASE_URL = "https://acnhapi.com/v1/songs/"
 
@@ -22,13 +26,6 @@ const getMusicInfo = () => {
             trackList(data)
         })
 }
-
-$btnPausePlay.addEventListener("click", () => {
-    $btnPause.classList.toggle("hidden")
-    $btnPlay.classList.toggle("hidden")
-    if ($btnPlay.className.includes("hidden")) $music.play()
-    else $music.pause()
-})
 
 let currentMusic = 0
 let musicList
@@ -87,13 +84,56 @@ setInterval(() => {
     }
 }, 500)
 
-$slide.addEventListener("change", () => $music.currentTime = $slide.value)
-
 const playMusic = () => {
     $music.play()
     $btnPause.classList.remove("hidden")
     $btnPlay.classList.add("hidden")
 }
+
+const shuffleList = () => {
+    for (let i = musicList.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        let temp = musicList[i];
+        musicList[i] = musicList[j];
+        musicList[j] = temp;
+    }
+    const randomTrack = Math.floor(Math.random() * musicList.length - 1)
+    return randomTrack
+}
+
+const chengeVolumeIcon = (value) => {
+    const icons = ["fa-volume-xmark", "fa-volume-low", "fa-volume-high"]
+    if (volumeNumber === 0) {
+        for (const icon of icons) {
+            $(`.${icon}`).classList.add("hidden")
+            $(".fa-volume-xmark").classList.remove("hidden")
+        }
+    } else if (volumeNumber > 0 && volumeNumber <= 50) {
+        for (const icon of icons) {
+            $(`.${icon}`).classList.add("hidden")
+            $(".fa-volume-low").classList.remove("hidden")
+        }
+    } else {
+        for (const icon of icons) {
+            $(`.${icon}`).classList.add("hidden")
+            $(".fa-volume-high").classList.remove("hidden")
+        }
+    }
+}
+
+window.addEventListener("load", () => {
+    getMusicInfo()
+    setTimeout(() => {
+        setMusic(0)
+    }, 500)
+})
+
+$btnPausePlay.addEventListener("click", () => {
+    $btnPause.classList.toggle("hidden")
+    $btnPlay.classList.toggle("hidden")
+    if ($btnPlay.className.includes("hidden")) $music.play()
+    else $music.pause()
+})
 
 $btnForward.addEventListener("click", () => {
     if (currentMusic >= musicList.length - 1) {
@@ -114,26 +154,19 @@ $btnBackward.addEventListener("click", () => {
     playMusic()
 })
 
-const shuffleList = () => {
-    for (let i = musicList.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        let temp = musicList[i];
-        musicList[i] = musicList[j];
-        musicList[j] = temp;
-    }
-    const randomTrack = Math.floor(Math.random() * musicList.length - 1)
-    return randomTrack
-}
+$slide.addEventListener("change", () => $music.currentTime = $slide.value)
+
+$btnVolume.addEventListener("click", () => {
+    $volumeContainer.classList.toggle("hidden")
+})
+
+$volumeSlider.addEventListener("input", (e) => {
+    $music.volume = e.currentTarget.value / 100
+    chengeVolumeIcon(e.currentTarget.value)
+})
 
 $btnShuffle.addEventListener("click", () => {
     shuffleList()
     setMusic(0)
     playMusic()
-})
-
-window.addEventListener("load", () => {
-    getMusicInfo()
-    setTimeout(() => {
-        setMusic(0)
-    }, 500)
 })

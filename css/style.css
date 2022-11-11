@@ -37,7 +37,7 @@ body {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
-.slider {
+.slider, .volume-input {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
@@ -48,7 +48,11 @@ body {
     overflow: hidden;
 }
 
-.slider::-webkit-slider-thumb {
+.volume-input {
+    height: 10px;
+}
+
+.slider::-webkit-slider-thumb, .volume-input::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     background-color: #3C2317;
@@ -143,6 +147,28 @@ button {
 
 i {
     font-size: 1.5rem;
+}
+
+.volume-container {
+    display: flex;
+    position: absolute;
+}
+
+.volume-div {
+    height: 0;
+    width: 0;
+    position: relative;
+    top: 9px;
+    left: -2px;
+    transform: rotate(-90deg);
+}
+
+.volume-input {
+    width: 110px;
+}
+
+.volume-icons {
+    width: 1.7rem;
 }
 
 .hidden {

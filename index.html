@@ -15,9 +15,6 @@
 <body>
 
     <audio src="" id="audio"></audio>
-<!--     <i class="fa-solid fa-volume-off"></i>
-    <i class="fa-solid fa-volume-low"></i>
-    <i class="fa-solid fa-volume-high"></i> -->
 
     <div class="main-container">
         <div class="main-section">
@@ -32,7 +29,18 @@
                 <img src="assets/1.png" alt="" class="main-img">
             </div>
             <div class="title">
-                <button><i class="fa-solid fa-volume-xmark"></i></button>
+                <div class="volume-container hidden">
+                    <div class="volume-div">
+                        <input type="range" min="0" max="100" value="100" class="volume-input"/>
+                    </div>
+                </div>
+                <button class="volume-button">
+                    <div class="volume-icons">
+                        <i class="fa-solid fa-volume-xmark hidden"></i>
+                        <i class="fa-solid fa-volume-low hidden"></i>
+                        <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                </button>
                 <div>
                     <h1 class="song-name">Agent K.K.</h1>
                     <h2>K.K. Slider</h2>
