@@ -103,6 +103,7 @@ const shuffleList = () => {
 
 const chengeVolumeIcon = (value) => {
     const icons = ["fa-volume-xmark", "fa-volume-low", "fa-volume-high"]
+    const volumeNumber = Number(value)
     if (volumeNumber === 0) {
         for (const icon of icons) {
             $(`.${icon}`).classList.add("hidden")
