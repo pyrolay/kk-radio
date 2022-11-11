@@ -48,10 +48,6 @@ body {
     overflow: hidden;
 }
 
-.volume-input {
-    height: 10px;
-}
-
 .slider::-webkit-slider-thumb, .volume-input::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -158,13 +154,17 @@ i {
     height: 0;
     width: 0;
     position: relative;
-    top: 9px;
-    left: -2px;
-    transform: rotate(-90deg);
+    top: -90px;
+    left: 10px
 }
 
 .volume-input {
-    width: 110px;
+    height: 8px;
+    width: 100px;
+    display: block;
+    transform-origin: top left;
+    transform: rotate(-90deg) translate(-100%);
+    white-space: nowrap;
 }
 
 .volume-icons {
